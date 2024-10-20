@@ -11,8 +11,8 @@ class Producto {
     this.cantidad = cantidad;
   }
 /**
- * 
- * @returns 
+ * Calcula el total a pagar por este rpoducto.
+ * @returns  - el total a pagar por el producto.
  */
   calcularTotal() {
     return this.precio * this.cantidad;
@@ -21,27 +21,27 @@ class Producto {
 
 class Carrito {
   /**
-   * 
+   *  Inicialmente el carrito esta vacio
    */
   constructor() {
     this.productos = [];
   }
 /**
- * 
+ * Esto agrega un producto al carrito
  * @param {*} producto 
  */
   agregarProducto(producto) {
     this.productos.push(producto);
   }
 /**
- * 
+ * Calcula el total del carrito sumando el total de cada producto agregado
  * @returns 
  */
   calcularTotalCarrito() {
     return this.productos.reduce((total, producto) => total + producto.calcularTotal(), 0);
   }
 /**
- * 
+ * Vacía el carrito eliminando todos los productos
  */
   vaciarCarrito() {
     this.productos = [];
@@ -50,7 +50,7 @@ class Carrito {
 
 class Usuario {
   /**
-   * 
+   * Crea una nueva instancia de Usuario.
    * @param {*} nombre 
    * @param {*} correo 
    */
@@ -60,14 +60,14 @@ class Usuario {
     this.carrito = new Carrito();
   }
 /**
- * 
+ * Agrega un producto al carrito del usuario.
  * @param {*} producto 
  */
   agregarProductoAlCarrito(producto) {
     this.carrito.agregarProducto(producto);
   }
 /**
- * 
+ * Finaliza la compra del usuario.
  */
   finalizarCompra() {
     const total = this.carrito.calcularTotalCarrito();
